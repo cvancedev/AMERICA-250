@@ -159,17 +159,27 @@ export default function Home() {
       <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-b from-transparent to-[#050816]" />
       <section
         id="history"
-        className="relative z-10 bg-[#050816] px-6 pt-32 pb-32 text-white"
+        className="relative z-10 overflow-hidden bg-[#050816] px-6 pt-32 pb-32 text-white"
       >
+        {/* HISTORY BACKGROUND IMAGE */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-35 blur-[1px]"
+          style={{
+            backgroundImage: "url('/images/history.jpg')",
+          }}
+        />
+
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-[#050816]/45" />
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="mx-auto max-w-6xl"
+          className="relative z-10 mx-auto max-w-6xl"
         >
           {/* LARGE FADED YEAR */}
-          <div className="pointer-events-none absolute right-10 top-10 text-[180px] font-bold text-white/[0.03]">
+          <div className="pointer-events-none absolute right-10 top-10 text-[180px] font-bold text-[#d6b25e]/[0.05]">
             1776
           </div>
 
@@ -193,17 +203,27 @@ export default function Home() {
           </blockquote>
         </motion.div>
       </section>
-      <div className="mx-auto h-[2px] w-full max-w-6xl bg-gradient-to-r from-transparent via-[#d6b25e]/30 to-transparent opacity-40" />
+      <div className="mx-auto h-px w-full max-w-6xl bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <section
         id="faith"
-        className="relative z-10 bg-[#050816] px-6 py-32 text-white"
+        className="relative overflow-hidden bg-[#050816] px-6 py-32 text-white"
       >
+        {/* FAITH BACKGROUND IMAGE */}
+        <div
+          className="absolute inset-0 bg-cover bg-[85%_center] opacity-60 blur-[1px]"
+          style={{
+            backgroundImage: "url('/images/faith-bg.jpg')",
+          }}
+        />
+
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-[#050816]/45" />
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="mx-auto max-w-6xl"
+          className="relative z-10 mx-auto max-w-6xl"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d6b25e]">
             Faith & Freedom
@@ -250,12 +270,21 @@ export default function Home() {
         id="honor"
         className="relative z-10 bg-[#030712] px-6 py-32 text-white"
       >
+        {/* HONOR BACKGROUND IMAGE */}
+<div
+  className="absolute inset-0 bg-cover bg-[85%_center] opacity-70 blur-[1px]"
+  style={{
+    backgroundImage: "url('/images/honor-bg.jpg')",
+  }}
+/>
+{/* DARK OVERLAY */}
+<div className="absolute inset-0 bg-[#050816]/40" />
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="mx-auto max-w-6xl"
+          className="relative z-10 mx-auto max-w-6xl"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d6b25e]">
             Honor & Sacrifice
@@ -308,20 +337,30 @@ export default function Home() {
       <div className="mx-auto h-px w-full max-w-6xl bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <section
         id="timeline"
-        className="relative z-10 bg-[#050816] px-6 py-32 text-white"
+        className="relative z-10 overflow-hidden bg-[#050816] px-6 py-32 text-white"
       >
+        {/* TIMELINE BACKGROUND IMAGE */}
+<div
+  className="absolute inset-0 bg-cover bg-right opacity-100 blur-[1px]"
+  style={{
+    backgroundImage: "url('/images/timeline-bg.png')",
+  }}
+/>
+
+{/* DARK OVERLAY */}
+<div className="absolute inset-0 bg-[#050816]/75" />
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="mx-auto max-w-6xl"
+          className="relative z-10 mx-auto max-w-6xl"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d6b25e]">
             Timeline
           </p>
 
-          <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
+          <h2 className="mt-4 max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
             250 Years of Faith, Freedom, and Perseverance
           </h2>
 

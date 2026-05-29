@@ -41,7 +41,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-[80vh] overflow-hidden">
       {/* NAVBAR */}
       <header className="fixed left-0 top-0 z-50 w-full px-6 py-6">
         <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-black/20 px-6 py-4 backdrop-blur-md">
@@ -85,7 +85,7 @@ export default function Home() {
       </header>
       <div className="absolute bottom-[-200px] left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#d6b25e]/20 blur-3xl" />
       {/* HERO CONTENT */}
-      <section className="relative z-10 flex min-h-[115vh] flex-col items-center justify-start overflow-hidden px-6 pt-40 md:pt-56 text-center text-white">
+      <section className="relative z-10 flex min-h-[115vh] flex-col items-center justify-start overflow-hidden px-6 pt-32 md:pt-40 text-center text-white">
         {/* BACKGROUND IMAGE */}
         <div
           className="absolute inset-0 bg-cover bg-[center_top]"
@@ -108,7 +108,7 @@ export default function Home() {
             1776 — 2026
           </p>
 
-          <h1 className="max-w-5xl text-3xl leading-tight sm:text-4xl md:text-6xl font-bold leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+          <h1 className="max-w-5xl text-3xl sm:text-4xl md:text-6xl font-bold leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
             250 Years of America
           </h1>
 
@@ -116,10 +116,14 @@ export default function Home() {
             One Nation Under God
           </h2>
 
-          <p className="mt-8 max-w-2xl text-lg leading-9 text-white/80">
+          <p className="mt-6 max-w-2xl text-lg leading-9 text-white/80">
             Commemorating America’s 250th birthday through faith, freedom,
             sacrifice, and the enduring hope found in God Almighty.
           </p>
+          <div className="mt-6 text-sm tracking-[0.3em] text-[#d4af37] uppercase">
+  Countdown to July 4, 2026
+</div>
+
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { label: "Days", value: timeLeft.days },
@@ -138,6 +142,24 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="mt-8 w-full max-w-2xl">
+  <div className="mb-3 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.25em] text-[#d6b25e]">
+    <span>1776</span>
+    <span>250TH ANNIVERSARY APPROACHING</span>
+    <span>2026</span>
+  </div>
+
+  <div className="h-2 w-full overflow-hidden rounded-full bg-white/15">
+    <div
+      className="h-full rounded-full bg-[#d6b25e] shadow-[0_0_25px_rgba(214,178,94,0.55)]"
+      style={{ width: "98%" }}
+    />
+  </div>
+
+  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
+    250 Years of Faith, Freedom, and Perseverance
+  </p>
+</div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
@@ -271,14 +293,14 @@ export default function Home() {
         className="relative z-10 bg-[#030712] px-6 py-32 text-white"
       >
         {/* HONOR BACKGROUND IMAGE */}
-<div
-  className="absolute inset-0 bg-cover bg-[85%_center] opacity-70 blur-[1px]"
-  style={{
-    backgroundImage: "url('/images/honor-bg.jpg')",
-  }}
-/>
-{/* DARK OVERLAY */}
-<div className="absolute inset-0 bg-[#050816]/40" />
+        <div
+          className="absolute inset-0 bg-cover bg-[85%_center] opacity-70 blur-[1px]"
+          style={{
+            backgroundImage: "url('/images/honor-bg.jpg')",
+          }}
+        />
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-[#050816]/40" />
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -339,16 +361,8 @@ export default function Home() {
         id="timeline"
         className="relative z-10 overflow-hidden bg-[#050816] px-6 py-32 text-white"
       >
-        {/* TIMELINE BACKGROUND IMAGE */}
-<div
-  className="absolute inset-0 bg-cover bg-right opacity-100 blur-[1px]"
-  style={{
-    backgroundImage: "url('/images/timeline-bg.png')",
-  }}
-/>
-
-{/* DARK OVERLAY */}
-<div className="absolute inset-0 bg-[#050816]/75" />
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-[#050816]/75" />
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -364,23 +378,55 @@ export default function Home() {
             250 Years of Faith, Freedom, and Perseverance
           </h2>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              {
-                year: "1776",
-                title: "A Nation Is Born",
-                text: "America declared independence and began a new chapter in history.",
-              },
-              {
-                year: "1863",
-                title: "A Nation Tested",
-                text: "The country faced division, sacrifice, and the costly fight for union.",
-              },
-              {
-                year: "2026",
-                title: "A Nation Remembers",
-                text: "America marks 250 years and reflects on freedom, faith, and responsibility.",
-              },
+              
+                {
+                  year: "1776",
+                  title: "A Nation Is Born",
+                  text: "The Declaration of Independence marks the birth of the United States.",
+                },
+                {
+                  year: "1787",
+                  title: "The Constitution Signed",
+                  text: "The framework of American government is written and adopted.",
+                },
+                {
+                  year: "1863",
+                  title: "A Nation Tested",
+                  text: "Through civil war and sacrifice, America wrestles with liberty and union.",
+                },
+                {
+                  year: "1917",
+                  title: "The Great War",
+                  text: "America enters World War I, helping shape the future of the modern world.",
+                },
+                {
+                  year: "1945",
+                  title: "Victory in World War II",
+                  text: "The United States and its allies secure victory after years of sacrifice.",
+                },
+                {
+                  year: "1969",
+                  title: "A Nation Reaches the Moon",
+                  text: "Apollo 11 lands on the moon, demonstrating American innovation and courage.",
+                },
+                {
+                  year: "2001",
+                  title: "A Nation Stands Together",
+                  text: "Following September 11, Americans unite in grief, resolve, and remembrance.",
+                },
+                {
+                  year: "2001–2021",
+                  title: "A Generation Serves",
+                  text: "Following September 11, American service members answered the call across Afghanistan, Iraq, and around the world."
+                },
+                {
+                  year: "2026",
+                  title: "America Turns 250",
+                  text: "The nation reflects on faith, freedom, sacrifice, and responsibility.",
+                },
+              
             ].map((item) => (
               <div
                 key={item.year}
@@ -398,6 +444,47 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+            <div className="mx-auto h-px w-full max-w-6xl bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+      <section className="relative bg-[#050816] px-6 py-24 text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="relative z-10 mx-auto max-w-6xl"
+        >
+    <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#d6b25e]">
+      America At 250
+    </p>
+
+    <h2 className="mt-4 text-4xl font-bold md:text-6xl">
+      A Nation Built Through Generations
+    </h2>
+
+    <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        { value: "250", label: "Years of Freedom" },
+        { value: "50", label: "States United" },
+        { value: "345M+", label: "Americans" },
+        { value: "1", label: "Nation Under God" },
+      ].map((item) => (
+        <div
+          key={item.label}
+          className="rounded-[28px] border border-white/10 bg-white/[0.04] p-8"
+        >
+          <p className="text-5xl font-bold text-[#d6b25e]">
+            {item.value}
+          </p>
+
+          <p className="mt-4 text-sm uppercase tracking-[0.25em] text-white/70">
+            {item.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </motion.div>
+</section>
       <div className="mx-auto h-px w-full max-w-6xl bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <section className="relative z-10 bg-[#030712] px-6 py-32 text-center text-white">
         <motion.div

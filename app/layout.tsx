@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Cinzel, Inter } from "next/font/google";
+import type { Metadata } from "next";
 
 const cinzel = Cinzel({
   subsets: ["latin"],

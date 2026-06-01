@@ -2,6 +2,25 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
+import VisitorPledge from "@/components/VisitorPledge";
+import LibertyBell from "@/components/LibertyBell";
+import OnThisDay from "@/components/OnThisDay";
+import WallOfRemembrance from "@/components/WallOfRemembrance";
+
+const tracks = [
+  "/audio/star-spangled-banner.mp3",
+  "/audio/america-the-beautiful.mp3",
+  "/audio/Battle-Hymn-of-the-Republic.mp3",
+  "/audio/My-Country-Tis-of-Thee.mp3",
+];
+
+const trackNames = [
+  "The Star-Spangled Banner",
+  "America the Beautiful",
+  "Battle Hymn of the Republic",
+  "My Country, 'Tis of Thee",
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
@@ -21,6 +40,9 @@ export default function Home() {
   const [showGoldStarPrayer, setShowGoldStarPrayer] = useState(false);
   const [showDeclaration, setShowDeclaration] = useState(false);
   const [quoteIndex, setQuoteIndex] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [playingMusic, setPlayingMusic] = useState(false);
+  const [currentTrack, setCurrentTrack] = useState(0);
 
   useEffect(() => {
     const updateCountdown = () => {
@@ -47,6 +69,30 @@ export default function Home() {
 
     return () => clearInterval(timer);
   }, []);
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+
+    if (playingMusic) {
+      audioRef.current.pause();
+      setPlayingMusic(false);
+    } else {
+      audioRef.current.play();
+      setPlayingMusic(true);
+    }
+  };
+
+  const playNextTrack = () => {
+    setCurrentTrack((prev) => {
+      const next = (prev + 1) % tracks.length;
+
+      setTimeout(() => {
+        audioRef.current?.play();
+      }, 100);
+
+      return next;
+    });
+  };
 
   const quotes = [
     {
@@ -622,44 +668,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="relative z-10 bg-[#030712] px-6 py-32 text-center text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="mx-auto max-w-4xl"
-        >
-          <h2 className="text-4xl font-bold leading-tight md:text-6xl">
-            Remember the Past.
-            <br />
-            Honor the Present.
-            <br />
-            Seek God for the Future.
-          </h2>
-
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-9 text-white/70">
-            As America reaches 250 years, we look back with gratitude, stand
-            today with humility, and pray for generations yet to come.
-          </p>
-
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="#history"
-              className="rounded-full bg-[#d6b25e] px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-black transition hover:scale-105"
-            >
-              Start Again
-            </a>
-
-            <a
-              href="#faith"
-              className="rounded-full border border-white/40 px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-white/10"
-            >
-              Faith & Freedom
-            </a>
-          </div>
-        </motion.div>
-      </section>
       <section className="relative bg-[#050816] px-6 py-24 text-white">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -704,6 +712,49 @@ export default function Home() {
           </p>
         </motion.div>
       </section>
+      <VisitorPledge />
+      <LibertyBell />
+      <OnThisDay />
+      <WallOfRemembrance />
+
+      <section className="relative z-10 bg-[#030712] px-6 py-32 text-center text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="mx-auto max-w-4xl"
+        >
+          <h2 className="text-4xl font-bold leading-tight md:text-6xl">
+            Remember the Past.
+            <br />
+            Honor the Present.
+            <br />
+            Seek God for the Future.
+          </h2>
+
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-9 text-white/70">
+            As America reaches 250 years, we look back with gratitude, stand
+            today with humility, and pray for generations yet to come.
+          </p>
+
+          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href="#"
+              className="rounded-full bg-[#d6b25e] px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-black transition hover:scale-105"
+            >
+              Return Home
+            </a>
+
+            <a
+              href="#faith"
+              className="rounded-full border border-white/40 px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:bg-white/10"
+            >
+              Faith & Freedom
+            </a>
+          </div>
+        </motion.div>
+      </section>
       <footer className="relative z-10 border-t border-white/10 bg-[#020617] px-6 py-10 text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
@@ -732,7 +783,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.92, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.35 }}
-            className="relative max-w-2xl rounded-[32px] border border-[#d6b25e]/30 bg-[#050816]/95 p-8 text-center text-white shadow-[0_0_80px_rgba(214,178,94,0.18)] md:p-12"
+            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-[32px] border border-[#d6b25e]/30 bg-[#050816]/95 p-6 text-center text-white shadow-[0_0_80px_rgba(214,178,94,0.18)] md:p-12"
           >
             <button
               onClick={() => setShowPrayer(false)}
@@ -788,11 +839,12 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.92, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.35 }}
-            className="relative max-w-2xl rounded-[32px] border border-[#d6b25e]/30 bg-[#050816]/95 p-8 text-center text-white shadow-[0_0_80px_rgba(214,178,94,0.18)] md:p-12"
+            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-[32px] border border-[#d6b25e]/30 bg-[#050816]/95 p-6 text-center text-white shadow-[0_0_80px_rgba(214,178,94,0.18)] md:p-12"
           >
             <button
               onClick={() => setShowGoldStarPrayer(false)}
-              className="absolute right-5 top-5 text-2xl text-white/50 transition hover:text-white"
+              aria-label="Close prayer modal"
+              className="absolute right-3 top-3 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-3xl leading-none text-white transition hover:bg-black/80 sm:right-5 sm:top-5"
             >
               ×
             </button>
@@ -890,6 +942,29 @@ export default function Home() {
           </motion.div>
         </div>
       )}
+      <div className="fixed bottom-8 right-8 z-[200] flex flex-col items-end gap-2">
+        {playingMusic && (
+          <p className="rounded-full border border-[#d6b25e]/20 bg-[#050816]/90 px-4 py-2 text-xs uppercase tracking-[0.15em] text-white/70 backdrop-blur-md">
+            Now Playing:
+            <span className="ml-2 text-[#d6b25e]">
+              {trackNames[currentTrack]}
+            </span>
+          </p>
+        )}
+
+        <button
+          onClick={toggleMusic}
+          className="rounded-full border border-[#d6b25e]/40 bg-[#050816]/95 px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#d6b25e] backdrop-blur-md transition hover:scale-105 hover:bg-[#d6b25e] hover:text-black"
+        >
+          {playingMusic ? "⏸ Pause Music" : "🎵 America 250 Soundtrack"}
+        </button>
+
+        <audio
+          ref={audioRef}
+          src={tracks[currentTrack]}
+          onEnded={playNextTrack}
+        />
+      </div>
     </main>
   );
 }

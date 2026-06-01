@@ -1,6 +1,6 @@
 # America 250 🇺🇸
 
-A tribute website commemorating the 250th Anniversary of the United States of America, celebrating the nation's history, faith, sacrifice, and enduring spirit from 1776 to 2026.
+> As America reaches 250 years, we look back with gratitude, stand today with humility, and pray for generations yet to come.
 
 ## Overview
 
@@ -57,19 +57,52 @@ America 250 is a personal project designed to honor the people, principles, and 
 * TypeScript
 * Tailwind CSS
 * Framer Motion
+* Firebase Firestore
+* Vercel
 
 ## Purpose
 
 This project was created as a personal tribute to America's 250th Anniversary. It is intended to inspire reflection, gratitude, remembrance, and hope while honoring the nation's history and those who sacrificed to preserve its freedoms.
 
-## Future Enhancements
+## Interactive Experiences
 
-Planned features include:
+### 🔔 Liberty Bell Experience
 
-* Wall of Remembrance
-* Liberty Bell interaction
-* On This Day in American History
-* Visitor Pledge
+* Interactive Liberty Bell feature
+* Patriotic reflection on liberty and responsibility
+* Animated visitor interaction
+
+### 🕯️ Wall of Remembrance
+
+* Tribute to America's fallen heroes
+* Reflection on sacrifice and service
+* Honors those who gave their lives defending freedom
+
+### 📅 On This Day in American History
+
+* Highlights notable events connected to the current date
+* Encourages visitors to discover America's rich history
+
+### 🤝 America 250 Visitor Pledge
+
+* Interactive pledge experience
+* Visitors can publicly join the America 250 mission
+* Live pledge count shared across all visitors
+
+### 🔥 Live Pledge Counter
+
+* Powered by Firebase Firestore
+* Real-time visitor participation tracking
+* Shared pledge count visible to all visitors
+
+### 🎵 Patriotic Music Experience
+
+* Floating soundtrack player
+* Features:
+  * The Star-Spangled Banner
+  * America the Beautiful
+  * Battle Hymn of the Republic
+  * My Country, 'Tis of Thee
 
 ## Author
 

@@ -193,7 +193,7 @@ export default function Home() {
       <section className="relative z-10 flex min-h-[115vh] flex-col items-center justify-start overflow-hidden px-6 pt-32 md:pt-40 text-center text-white">
         {/* BACKGROUND IMAGE */}
         <div
-          className="absolute inset-0 bg-cover bg-[center_top]"
+          className="absolute inset-0 bg-cover bg-center md:bg-[center_top]"
           style={{
             backgroundImage: "url('/images/hero-bg.jpg')",
           }}
@@ -290,7 +290,7 @@ export default function Home() {
       >
         {/* HISTORY BACKGROUND IMAGE */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-35 blur-[1px]"
+          className="absolute inset-0 bg-cover bg-top md:bg-center opacity-35 blur-[1px]"
           style={{
             backgroundImage: "url('/images/history.jpg')",
           }}
@@ -343,7 +343,7 @@ export default function Home() {
       >
         {/* FAITH BACKGROUND IMAGE */}
         <div
-          className="absolute inset-0 bg-cover bg-[85%_center] opacity-60 blur-[1px]"
+          className="absolute inset-0 bg-cover bg-[85%_center] md:bg-center opacity-60 blur-[1px]"
           style={{
             backgroundImage: "url('/images/faith-bg.jpg')",
           }}
@@ -411,7 +411,7 @@ export default function Home() {
       >
         {/* HONOR BACKGROUND IMAGE */}
         <div
-          className="absolute inset-0 bg-cover bg-[85%_center] opacity-70 blur-[1px]"
+          className="absolute inset-0 bg-cover bg-[85%_center] md:bg-center opacity-70 blur-[1px]"
           style={{
             backgroundImage: "url('/images/honor-bg.jpg')",
           }}
